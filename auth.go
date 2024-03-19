@@ -18,5 +18,5 @@ import "net/http"
 
 // Unauthenticated returns an unauthenticated error
 func Unauthenticated(scheme string) Error {
-	return New(http.StatusUnauthorized, "unauthenticated for %s", scheme)
+	return New(http.StatusUnauthorized, "未经身份验证的 %s", scheme)
 }

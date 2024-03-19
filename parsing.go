@@ -55,17 +55,17 @@ func (e ParseError) MarshalJSON() ([]byte, error) {
 }
 
 const (
-	parseErrorTemplContent     = `parsing %s %s from %q failed, because %s`
-	parseErrorTemplContentNoIn = `parsing %s from %q failed, because %s`
+	parseErrorTemplContent     = `从 %q 解析 %s %s 失败，因为 %s`
+	parseErrorTemplContentNoIn = `从 %q 解析 %s 失败，因为 %s`
 )
 
 // NewParseError creates a new parse error
 func NewParseError(name, in, value string, reason error) *ParseError {
 	var msg string
 	if in == "" {
-		msg = fmt.Sprintf(parseErrorTemplContentNoIn, name, value, reason)
+		msg = fmt.Sprintf(parseErrorTemplContentNoIn, value, name, reason)
 	} else {
-		msg = fmt.Sprintf(parseErrorTemplContent, name, in, value, reason)
+		msg = fmt.Sprintf(parseErrorTemplContent, value, in, name, reason)
 	}
 	return &ParseError{
 		code:    400,

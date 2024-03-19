@@ -35,7 +35,7 @@ func (v *APIVerificationFailed) Error() string {
 	hasSpecMissing := len(v.MissingSpecification) > 0
 
 	if hasRegMissing {
-		buf.WriteString(fmt.Sprintf("missing [%s] %s registrations", strings.Join(v.MissingRegistration, ", "), v.Section))
+		buf.WriteString(fmt.Sprintf("缺少 [%s] %s 登记", strings.Join(v.MissingRegistration, ", "), v.Section))
 	}
 
 	if hasRegMissing && hasSpecMissing {
@@ -43,7 +43,7 @@ func (v *APIVerificationFailed) Error() string {
 	}
 
 	if hasSpecMissing {
-		buf.WriteString(fmt.Sprintf("missing from spec file [%s] %s", strings.Join(v.MissingSpecification, ", "), v.Section))
+		buf.WriteString(fmt.Sprintf("规格文件中缺失 [%s] %s", strings.Join(v.MissingSpecification, ", "), v.Section))
 	}
 
 	return buf.String()

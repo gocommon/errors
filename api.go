@@ -69,7 +69,7 @@ func New(code int32, message string, args ...interface{}) Error {
 // NotFound creates a new not found error
 func NotFound(message string, args ...interface{}) Error {
 	if message == "" {
-		message = "Not found"
+		message = "没找到"
 	}
 	return New(http.StatusNotFound, fmt.Sprintf(message, args...))
 }
@@ -135,7 +135,7 @@ func flattenComposite(errs *CompositeError) *CompositeError {
 
 // MethodNotAllowed creates a new method not allowed error
 func MethodNotAllowed(requested string, allow []string) Error {
-	msg := fmt.Sprintf("method %s is not allowed, but [%s] are", requested, strings.Join(allow, ","))
+	msg := fmt.Sprintf("方法 %s 不被允许，但是 [%s] 可以", requested, strings.Join(allow, ","))
 	return &MethodNotAllowedError{
 		code:    http.StatusMethodNotAllowed,
 		Allowed: allow,
@@ -166,7 +166,7 @@ func ServeError(rw http.ResponseWriter, r *http.Request, err error) {
 		value := reflect.ValueOf(e)
 		if value.Kind() == reflect.Ptr && value.IsNil() {
 			rw.WriteHeader(http.StatusInternalServerError)
-			_, _ = rw.Write(errorAsJSON(New(http.StatusInternalServerError, "Unknown error")))
+			_, _ = rw.Write(errorAsJSON(New(http.StatusInternalServerError, "未知错误")))
 			return
 		}
 		rw.WriteHeader(asHTTPCode(int(e.Code())))
@@ -175,7 +175,7 @@ func ServeError(rw http.ResponseWriter, r *http.Request, err error) {
 		}
 	case nil:
 		rw.WriteHeader(http.StatusInternalServerError)
-		_, _ = rw.Write(errorAsJSON(New(http.StatusInternalServerError, "Unknown error")))
+		_, _ = rw.Write(errorAsJSON(New(http.StatusInternalServerError, "未知错误")))
 	default:
 		rw.WriteHeader(http.StatusInternalServerError)
 		if r == nil || r.Method != http.MethodHead {

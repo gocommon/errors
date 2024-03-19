@@ -66,8 +66,8 @@ func (e *Validation) ValidateName(name string) *Validation {
 }
 
 const (
-	contentTypeFail    = `unsupported media type %q, only %v are allowed`
-	responseFormatFail = `unsupported media type requested, only %v are available`
+	contentTypeFail    = `支持的媒体类型 %q，仅允许 %v`
+	responseFormatFail = `请求的媒体类型不受支持，只有 %v 可用`
 )
 
 // InvalidContentType error for an invalid content type

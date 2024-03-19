@@ -21,52 +21,52 @@ import (
 )
 
 const (
-	invalidType               = "%s is an invalid type name"
-	typeFail                  = "%s in %s must be of type %s"
-	typeFailWithData          = "%s in %s must be of type %s: %q"
-	typeFailWithError         = "%s in %s must be of type %s, because: %s"
-	requiredFail              = "%s in %s is required"
-	readOnlyFail              = "%s in %s is readOnly"
-	tooLongMessage            = "%s in %s should be at most %d chars long"
-	tooShortMessage           = "%s in %s should be at least %d chars long"
-	patternFail               = "%s in %s 应该匹配正则 '%s'"
-	enumFail                  = "%s in %s should be one of %v"
-	multipleOfFail            = "%s in %s should be a multiple of %v"
-	maxIncFail                = "%s in %s should be less than or equal to %v"
-	maxExcFail                = "%s in %s should be less than %v"
-	minIncFail                = "%s in %s should be greater than or equal to %v"
-	minExcFail                = "%s in %s should be greater than %v"
-	uniqueFail                = "%s in %s shouldn't contain duplicates"
-	maxItemsFail              = "%s in %s should have at most %d items"
-	minItemsFail              = "%s in %s should have at least %d items"
-	typeFailNoIn              = "%s must be of type %s"
-	typeFailWithDataNoIn      = "%s must be of type %s: %q"
-	typeFailWithErrorNoIn     = "%s must be of type %s, because: %s"
-	requiredFailNoIn          = "%s is required"
-	readOnlyFailNoIn          = "%s is readOnly"
-	tooLongMessageNoIn        = "%s should be at most %d chars long"
-	tooShortMessageNoIn       = "%s should be at least %d chars long"
+	invalidType               = "%s 是无效的类型名称"
+	typeFail                  = "%s 在 %s 必须是类型： %s"
+	typeFailWithData          = "%s 在 %s 必须是类型： %s: %q"
+	typeFailWithError         = "%s 在 %s 必须是类型： %s, because: %s"
+	requiredFail              = "%s 在 %s 必填"
+	readOnlyFail              = "%s 在 %s 只读"
+	tooLongMessage            = "%s 在 %s 最多 %d 字符长度"
+	tooShortMessage           = "%s 在 %s 最少 %d 字符长度"
+	patternFail               = "%s 在 %s 应该匹配正则 '%s'"
+	enumFail                  = "%s 在 %s 应该是 %v 其中之一"
+	multipleOfFail            = "%s 在 %s 应该是 %v 的倍数"
+	maxIncFail                = "%s 在 %s 应该小于或等于 %v"
+	maxExcFail                = "%s 在 %s 应该小于 %v"
+	minIncFail                = "%s 在 %s 应该大于或等于 %v"
+	minExcFail                = "%s 在 %s 应该大于 %v"
+	uniqueFail                = "%s 在 %s 不应包含重复项"
+	maxItemsFail              = "%s 在 %s 最多应有 %d 项"
+	minItemsFail              = "%s 在 %s 最少应有 %d 项"
+	typeFailNoIn              = "%s 必须是类型： %s"
+	typeFailWithDataNoIn      = "%s 必须是类型： %s: %q"
+	typeFailWithErrorNoIn     = "%s 必须是类型： %s, because: %s"
+	requiredFailNoIn          = "%s 必填"
+	readOnlyFailNoIn          = "%s 只读"
+	tooLongMessageNoIn        = "%s 最多 %d 字符长度"
+	tooShortMessageNoIn       = "%s 最少 %d 字符长度"
 	patternFailNoIn           = "%s 应该匹配正则 '%s'"
-	enumFailNoIn              = "%s should be one of %v"
-	multipleOfFailNoIn        = "%s should be a multiple of %v"
-	maxIncFailNoIn            = "%s should be less than or equal to %v"
-	maxExcFailNoIn            = "%s should be less than %v"
-	minIncFailNoIn            = "%s should be greater than or equal to %v"
-	minExcFailNoIn            = "%s should be greater than %v"
-	uniqueFailNoIn            = "%s shouldn't contain duplicates"
-	maxItemsFailNoIn          = "%s should have at most %d items"
-	minItemsFailNoIn          = "%s should have at least %d items"
-	noAdditionalItems         = "%s in %s can't have additional items"
-	noAdditionalItemsNoIn     = "%s can't have additional items"
-	tooFewProperties          = "%s in %s should have at least %d properties"
-	tooFewPropertiesNoIn      = "%s should have at least %d properties"
-	tooManyProperties         = "%s in %s should have at most %d properties"
-	tooManyPropertiesNoIn     = "%s should have at most %d properties"
-	unallowedProperty         = "%s.%s in %s is a forbidden property"
-	unallowedPropertyNoIn     = "%s.%s is a forbidden property"
-	failedAllPatternProps     = "%s.%s in %s failed all pattern properties"
-	failedAllPatternPropsNoIn = "%s.%s failed all pattern properties"
-	multipleOfMustBePositive  = "factor MultipleOf declared for %s must be positive: %v"
+	enumFailNoIn              = "%s 应该是 %v 其中之一"
+	multipleOfFailNoIn        = "%s 应该是 %v 的倍数"
+	maxIncFailNoIn            = "%s 应该小于或等于 %v"
+	maxExcFailNoIn            = "%s 应该小于 %v"
+	minIncFailNoIn            = "%s 应该大于或等于 %v"
+	minExcFailNoIn            = "%s 应该大于 %v"
+	uniqueFailNoIn            = "%s 不应包含重复项"
+	maxItemsFailNoIn          = "%s 最多应有 %d 项"
+	minItemsFailNoIn          = "%s 最少应有 %d 项"
+	noAdditionalItems         = "%s 在 %s 不能有额外的项"
+	noAdditionalItemsNoIn     = "%s 不能有额外的项"
+	tooFewProperties          = "%s 在 %s 应该至少有 %d 个属性"
+	tooFewPropertiesNoIn      = "%s 应该至少有 %d 个属性"
+	tooManyProperties         = "%s 在 %s 应该至多有 %d 个属性"
+	tooManyPropertiesNoIn     = "%s 应该至多有 %d 个属性"
+	unallowedProperty         = "%s.%s 在 %s 中是一个禁止访问属性"
+	unallowedPropertyNoIn     = "%s.%s 是一个禁止访问属性"
+	failedAllPatternProps     = "%s.%s 在 %s 中所有模式属性均失败"
+	failedAllPatternPropsNoIn = "%s.%s 所有模式属性均失败"
+	multipleOfMustBePositive  = "为 %s 声明的因子倍数必须为正数：%v"
 )
 
 // All code responses can be used to differentiate errors for different handling
@@ -138,7 +138,7 @@ func CompositeValidationError(errors ...error) *CompositeError {
 	return &CompositeError{
 		code:    CompositeErrorCode,
 		Errors:  append(make([]error, 0, len(errors)), errors...),
-		message: "validation failure list",
+		message: "验证失败列表",
 	}
 }
 
@@ -236,7 +236,7 @@ func InvalidCollectionFormat(name, in, format string) *Validation {
 		Name:    name,
 		In:      in,
 		Value:   format,
-		message: fmt.Sprintf("the collection format %q is not supported for the %s param %q", format, in, name),
+		message: fmt.Sprintf("%s 参数 %q 不支持集合格式 %q", format, in, name),
 	}
 }
 
